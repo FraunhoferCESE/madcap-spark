@@ -81,15 +81,18 @@ if __name__ == "__main__":
 	rootLogger.addHandler(consoleHandler)	
 	
 	# Instantiate clients
+	# If downloading from MADCAP production, change madcap-dev1 to madcap-142815
 	storage_client = storage.Client(project='madcap-dev1')
 	bq_client = bigquery.Client(project='madcap-dev1')
 
+	## If necessary, change the backup_bucket_name to the appropriate name. 
 	backup_bucket_name = 'madcap-backup'
 	backup_bucket = storage_client.get_bucket(backup_bucket_name)
 	if not backup_bucket.exists():
 		logging.error("Can't find {} bucket. Quitting.".format(backup_bucket_name))
 		quit()
 
+	## If necessary, change the export_bucket_name to the appropriate name. 
 	export_bucket_name = 'madcap-export'
 	export_bucket = storage_client.get_bucket(export_bucket_name)
 	if not backup_bucket.exists():
