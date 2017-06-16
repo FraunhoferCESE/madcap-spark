@@ -17,4 +17,4 @@ The script performs the following:
 
 ## Running
 - Change bucket name (Cloud Storage) and temporary table name (BigQuery) variables within the script if desired.
-- Run 'python download-backups.py'. Execution will take some time. Files will be downloaded to the execution directory.
+- Run `python download-backups.py`. Execution will take some time. Files will be downloaded to the execution directory.
